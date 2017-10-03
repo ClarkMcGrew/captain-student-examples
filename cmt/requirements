@@ -1,0 +1,15 @@
+package captainStudentExamples
+use captainRelease
+
+
+path_remove PATH "$(CAPTAINSTUDENTEXAMPLESROOT)"
+path_prepend PATH "$(CAPTAINSTUDENTEXAMPLESROOT)/$(captainStudentExamples_tag)"
+path_prepend PATH "$(CAPTAINSTUDENTEXAMPLESROOT)/scripts"
+
+
+# Application to build an example file with gaussian data.  This is a good
+# way to start learning root.
+
+application example-data ../app/example_data.cxx
+
+
