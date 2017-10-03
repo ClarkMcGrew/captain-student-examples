@@ -1,0 +1,21 @@
+/dsim/control baseline 1.0
+/dsim/update
+
+# Set the particle and it's energy.
+/gps/particle mu-
+/gps/energy 300 MeV
+
+# This generates the position of the particle gun near the center of CAPTAIN
+/gps/position 0.0 0.0 -50.0 cm
+/gps/pos/type Volume
+/gps/pos/shape Para
+/gps/pos/halfx 10 cm
+/gps/pos/halfy 10 cm
+/gps/pos/halfz 10 cm
+
+# This generates the direction of the particle gun.  These muons are
+# isotropic. 
+/gps/ang/type iso
+
+# Generate 10 events.
+/run/beamOn 10
