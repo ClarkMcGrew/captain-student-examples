@@ -1,7 +1,6 @@
 package captainStudentExamples
 use captainRelease
 
-
 path_remove PATH "$(CAPTAINSTUDENTEXAMPLESROOT)"
 path_prepend PATH "$(CAPTAINSTUDENTEXAMPLESROOT)/$(captainStudentExamples_tag)"
 path_prepend PATH "$(CAPTAINSTUDENTEXAMPLESROOT)/scripts"
@@ -12,4 +11,5 @@ path_prepend PATH "$(CAPTAINSTUDENTEXAMPLESROOT)/scripts"
 
 application example-data ../app/example_data.cxx
 
+application readDetSim ../readDetSim/readDetSim.cxx
 
