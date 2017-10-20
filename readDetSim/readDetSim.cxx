@@ -1,5 +1,6 @@
 #include <memory>
 #include <iostream>
+#include <fstream>
 
 #include <eventLoop.hxx>
 
@@ -58,6 +59,16 @@ public:
         std::cout << " y " << traj->GetFinalPosition().Y() << std::endl;
         std::cout << " z " << traj->GetFinalPosition().Z() << std::endl;
 
+        double dx = traj->GetFinalPosition().X()-traj->GetInitialPosition().X();
+        double dy = traj->GetFinalPosition().Y()-traj->GetInitialPosition().Y();
+        double dz = traj->GetFinalPosition().Z()-traj->GetInitialPosition().Z();
+
+        double length = std::sqrt(dx*dx + dy*dy + dz*dz);
+
+        std::cout << length << std::endl;
+
+        fOutput << length << std::endl;
+        
         return true;
     }
 
@@ -65,6 +76,7 @@ public:
     /// event.  The output file is open so any histograms will be added to the
     /// output file.
     virtual void Initialize(void) {
+        fOutput.open("proton100.data");
     }
 
     /// Called after reading the last event.  The output file is still open,
@@ -72,10 +84,13 @@ public:
     /// way root handles histograms, objects created in Initialize() will
     /// already be stored in the output file.
     virtual void Finalize(CP::TRootOutput* output) {
+        fOutput.close();
     }
 
 private:
 
+    std::ofstream fOutput;
+    
 };
 
 int main(int argc, char **argv) {
