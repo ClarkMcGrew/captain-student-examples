@@ -1,5 +1,5 @@
 package captainStudentExamples
-use captainRelease
+use detSim
 
 path_remove PATH "$(CAPTAINSTUDENTEXAMPLESROOT)"
 path_prepend PATH "$(CAPTAINSTUDENTEXAMPLESROOT)/$(captainStudentExamples_tag)"
