@@ -65,9 +65,14 @@ public:
 
         double length = std::sqrt(dx*dx + dy*dy + dz*dz);
 
-        std::cout << length << std::endl;
+        std::cout << "length " << length << std::endl;
 
-        fOutput << length << std::endl;
+        double energy = traj->GetInitialMomentum().E()
+            - traj->GetInitialMomentum().M();
+
+        std::cout << "energy " << energy << std::endl;
+
+        fOutput << length << " " << energy << std::endl;
         
         return true;
     }
